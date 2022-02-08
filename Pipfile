@@ -14,4 +14,4 @@ transformations-basic = {editable = true, path = "."}
 packager = "python setup.py bdist_egg"
 
 [requires]
-python_version = "3.6"
+python_version = "3.9"

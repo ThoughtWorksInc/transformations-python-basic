@@ -3,9 +3,15 @@ The purpose of this repo is to make sure you have everything set up to build and
 
 ## Pre-requisites
 Please make sure you have the following installed and can run them
-* Python 3.6 or later
+* Python 3.9 or later
 * pipenv
 * Java 8 or later
+
+## Set up virtual environment
+To set up the virtual environment and to install all dependencies run
+```bash
+pipenv install --dev
+```
 
 ## Run tests
 ```bash
@@ -20,11 +26,12 @@ To run the spark job locally, first package it:
 pipenv run packager
 ```
 
-Then you can submit the spark job with:
+Then you can submit the spark job with (note that the python version in the file name
+should match the version in your environment):
 ```bash
 pipenv run spark-submit \
     --master local \
-    --py-files dist/transformations_basic-0.1.0-py3.6.egg \
+    --py-files dist/transformations_basic-0.1.0-py3.9.egg \
     jobs/hello_spark.py
 ```
 
