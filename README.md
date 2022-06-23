@@ -1,30 +1,43 @@
 # Basic Repo for working with Pyspark
+
 The purpose of this repo is to make sure you have everything set up to build and run a pyspark project locally.
 
 ## Pre-requisites
+
 Please make sure you have the following installed and can run them
-* Python 3.6 or later
-* pipenv
-* Java 8 or later
+
+* Python (3.9 or later), you can use for example [pyenv](https://github.com/pyenv/pyenv#installation) to manage your python versions locally
+* [Poetry](https://python-poetry.org/docs/#installation)
+* Java (1.8)
+
+## Install dependencies
+
+```bash
+poetry install
+```
 
 ## Run tests
+
 ```bash
-pipenv run pytest
+poetry run pytest
 ```
 
 Please confirm that all of the tests pass.
 
 ## Setup for local run with pyspark
+
 To run the spark job locally, first package it:
+
 ```bash
-pipenv run packager
+poetry build
 ```
 
 Then you can submit the spark job with:
+
 ```bash
-pipenv run spark-submit \
+poetry run spark-submit \
     --master local \
-    --py-files dist/transformations_basic-0.1.0-py3.6.egg \
+    --py-files dist/transformations_basic-0.1.0-py3-none-any.whl \
     jobs/hello_spark.py
 ```
 
